@@ -1,3 +1,4 @@
+/* groovylint-disable Indentation */
 /* groovylint-disable-next-line CompileStatic */
 pipeline {
   agent any
@@ -5,8 +6,11 @@ pipeline {
     stage('Build') {
       steps {
         sh '''
-          pip3 install -r requirements.txt
           echo "Building..."
+
+          docker build --tag python-api .
+
+          echo "Building complete!"
         '''
       }
     }
@@ -14,7 +18,6 @@ pipeline {
       steps {
         sh '''
           echo "Testing..."
-          python app.py --name=Jenkins
         '''
       }
     }

@@ -1,9 +1,8 @@
-import fire
+from flask import Flask
+
+app = Flask(__name__)
 
 
-def hello(name="World"):
-  return "Hello %s!" % name
-
-
-if __name__ == "__main__":
-  fire.Fire(hello)
+@app.route('/')
+def home():
+  return 'Hey!'
