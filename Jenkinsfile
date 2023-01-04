@@ -8,7 +8,7 @@ pipeline {
         sh '''
           echo "Building..."
 
-          docker build --build-arg ENVIRONMENT=stage --tag python-api .
+          docker build --tag python-api . --build-arg ENV=prod
 
           echo "Building complete!"
         '''
