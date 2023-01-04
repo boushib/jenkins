@@ -4,7 +4,7 @@ ARG ENV
 
 WORKDIR /app
 
-RUN ech "ENV::: $ENV"
+RUN echo "ENV::: $ENV"
 
 RUN if [ "$ENV" = "prod" ] ; then echo "Building prod..." ; else echo "Building dev..." ; fi
 
