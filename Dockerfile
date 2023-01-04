@@ -6,7 +6,7 @@ WORKDIR /app
 
 RUN echo "ENV::: $ENV"
 
-RUN if [ "$ENV" = "prod" ] ; then echo "Building prod..." ; else echo "Building dev..." ; fi
+RUN if [ "$ENV" != "dev" ] ; then echo "Building to stage or prod..." ; else echo "Building to dev..." ; fi
 
 COPY requirements.txt requirements.txt
 RUN pip3 install -r requirements.txt
